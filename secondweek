@@ -1,0 +1,117 @@
+problem A
+def f00(): 
+   a = list(map(int,input().split(" ")))
+   b = int(a[0]+1)
+   for i in range(len(a)):
+       b = b - 1
+       
+       if(b == -1):
+           print('0')
+           return 0
+       if(b < a[i]):
+           b = a[i]
+    
+   print('1')
+f00()
+
+
+PROBLEM B
+b = int(input())
+a = list(map(int,input().split()))
+a.sort()
+c = a[len(a)-1]*a[len(a)-2]
+print(c)
+
+
+Problem C
+a = int(input())
+for i in range(0,a):
+    for j in range(0, a):
+        if(i == j):
+            print(i*j, end ='\t')
+        else:
+            if(i == 0):
+                print(j, end ='\t')
+            else:
+                if(j == 0):
+                    print(i, end = '\t')
+                else:
+                    print('0', end ='\t')
+    print('')
+
+
+Problem D
+n = int(input())
+b = int(1)
+if(n%2 == 1):
+    for i in range(1,n+1):
+        for j in range(1,n+1):
+            if i + j < n+1:
+                print(".",end = '\t')
+            else:
+                print('#',end = '\t')
+        print('')
+else:
+    for i in range(1,n+1):
+        b = 1
+        for j in range(1,n+1):
+            if b <= i:
+                print("#", end = '\t')
+                b = b + 1
+            else:
+                print('.', end='\t')
+        print('')
+  
+  
+Problem E
+g = list(map(int, input().split()))
+n = g[0]
+x = g[1]
+arr = []
+for i in range(0,n):
+    arr.append(x + (2*i))
+
+b = 0
+
+for i in range(0, n):
+    b = b ^ arr[i]
+print(b)
+
+
+Problem J
+import re
+a = int(input())
+c = 0
+v = []
+for i in range(0, a):
+    d = True
+    b = input()
+    if not re.search("[a-z]",b):
+        
+        d = False
+    if not re.search("[0-9]",b):
+        d = False
+    if not re.search("[A-Z]",b):
+        d = False
+    if b in v:
+        d = False
+    
+    if d == True:
+        c = c + 1
+        v.append(b)
+print(c)
+v.sort()
+for i in range(0,len(v)):
+    print(v[i])
+    
+Problem K
+n = input()
+import re
+g = re.sub(r'[^\w\s]','', n)
+b = list(g.split(" "))
+b.sort()
+b = list(dict.fromkeys(b))
+
+print(len(b))
+for element in b:
+    print(element)
